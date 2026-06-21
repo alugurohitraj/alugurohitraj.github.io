@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alugu Rohit Raj — Finance Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+
+  /* ── Reset & Base ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0F1F3D;
+    --ink:     #1A2E4A;
+    --teal:    #0D7A6B;
+    --teal-lt: #E6F4F1;
+    --gold:    #C9993A;
+    --gold-lt: #FDF6E9;
+    --slate:   #6B7C93;
+    --fog:     #F3F5F8;
+    --white:   #FFFFFF;
+    --border:  #DDE3EC;
+    --text:    #1A2E4A;
+    --body-font: 'Inter', sans-serif;
+    --display-font: 'DM Serif Display', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body-font);
+    color: var(--text);
+    background: var(--white);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Navigation ───────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(15, 31, 61, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: var(--display-font);
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    padding: 140px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(13,122,107,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 20%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,153,58,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13,122,107,0.15);
+    border: 1px solid rgba(13,122,107,0.35);
+    color: #4ECDB8;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #4ECDB8;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: var(--display-font);
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #4ECDB8;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+
+  .hero-subtitle span {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: #0A6558; transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+  /* ── Stats bar ────────────────────────────────────────────── */
+  .stats-bar {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 40px;
+  }
+
+  .stats-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .stat {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 0 16px;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-value {
+    font-family: var(--display-font);
+    font-size: 28px;
+    color: var(--white);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .stat-value em { font-style: normal; color: #4ECDB8; }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+  }
+
+  /* ── Section base ─────────────────────────────────────────── */
+  section { padding: 90px 40px; }
+
+  .section-inner { max-width: 780px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: var(--display-font);
+    font-size: clamp(26px, 3.5vw, 36px);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 52px;
+    max-width: 580px;
+  }
+
+  /* ── Project card ─────────────────────────────────────────── */
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 12px 40px rgba(15,31,61,0.10);
+    transform: translateY(-2px);
+  }
+
+  .project-header {
+    background: var(--navy);
+    padding: 26px 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .project-number {
+    font-family: var(--display-font);
+    font-size: 48px;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: -4px;
+  }
+
+  .project-header-text { flex: 1; }
+
+  .project-badge {
+    display: inline-block;
+    background: rgba(13,122,107,0.2);
+    border: 1px solid rgba(13,122,107,0.4);
+    color: #4ECDB8;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-family: var(--display-font);
+    font-size: 22px;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .project-tools {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tool-chip {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Screenshot placeholder */
+  .project-screenshot {
+    background: var(--fog);
+    border-bottom: 1px solid var(--border);
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .screenshot-placeholder {
+    text-align: center;
+    color: var(--slate);
+  }
+
+  .screenshot-placeholder svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    opacity: 0.35;
+  }
+
+  .screenshot-placeholder p {
+    font-size: 13px;
+    opacity: 0.6;
+  }
+
+  .project-body { padding: 28px 32px 32px; }
+
+  .project-desc {
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+
+  .project-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .highlight {
+    background: var(--fog);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--teal);
+  }
+
+  .highlight-value {
+    font-family: var(--display-font);
+    font-size: 20px;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .highlight-label {
+    font-size: 12px;
+    color: var(--slate);
+    font-weight: 500;
+  }
+
+  .project-footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn-download {
+    background: var(--teal);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: background 0.2s;
+  }
+
+  .btn-download:hover { background: #0A6558; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: border-color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--navy); }
+
+  /* Coming soon card */
+  .coming-soon {
+    background: var(--fog);
+    border: 1.5px dashed var(--border);
+    border-radius: 14px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .coming-soon-icon {
+    width: 44px; height: 44px;
+    background: var(--teal-lt);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .coming-soon h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .coming-soon p {
+    font-size: 13px;
+    color: var(--slate);
+  }
+
+  /* ── About section ────────────────────────────────────────── */
+  #about { background: var(--fog); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .about-text p strong { color: var(--navy); font-weight: 600; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .skill-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .skill-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .skill-name::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), #4ECDB8);
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+
+  /* ── Contact section ──────────────────────────────────────── */
+  #contact {
+    background: var(--navy);
+    text-align: center;
+  }
+
+  #contact .section-label { color: #4ECDB8; }
+
+  #contact .section-title { color: var(--white); }
+
+  #contact .section-intro { color: rgba(255,255,255,0.5); margin: 0 auto 40px; }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 24px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
+    color: var(--white);
+  }
+
+  .contact-link.primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  .contact-link.primary:hover { background: #0A6558; }
+
+  /* ── Footer ───────────────────────────────────────────────── */
+  footer {
+    background: #080F1E;
+    padding: 24px 40px;
+    text-align: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 12px;
+  }
+
+  footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+  /* ── Divider ──────────────────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ── Responsive ───────────────────────────────────────────── */
+  @media (max-width: 680px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 11px; }
+    .hero { padding: 110px 20px 70px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 60px 20px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .project-highlights { grid-template-columns: 1fr; }
+    .project-header { flex-direction: column; }
+    .project-number { font-size: 32px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Alugu Rohit Raj</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Available for FP&A Roles · UK</div>
+    <h1>Finance Analyst<br>building models that<br><em>tell the story</em></h1>
+    <p class="hero-subtitle">
+      <span>MSc Accounting & Finance</span> · University of Southampton<br>
+      <span>Part Qualified ACCA</span> · Specialising in Corporate Finance, FP&A and Financial Modelling
+    </p>
+    <div class="hero-tags">
+      <span class="tag">3-Statement Modelling</span>
+      <span class="tag">FP&A</span>
+      <span class="tag">DCF Valuation</span>
+      <span class="tag">Excel</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">FTSE 100 Analysis</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 17V7l11 5-11 5z"/></svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn-outline">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-2 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-value">£<em>68</em>bn</span>
+      <span class="stat-label">Revenue modelled</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value"><em>5</em>yrs</span>
+      <span class="stat-label">Historical data</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value"><em>3</em>yrs</span>
+      <span class="stat-label">Forward projections</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">12<em>/12</em></span>
+      <span class="stat-label">Model checks passing</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Financial Analysis Projects</h2>
+    <p class="section-intro">
+      Real companies. Real data. Each project built from scratch using publicly available
+      annual reports and financial statements — no templates, no shortcuts.
+    </p>
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-header-text">
+          <div class="project-badge">Project 01 · Complete</div>
+          <h3 class="project-title">Tesco PLC — 3-Statement Integrated Financial Model</h3>
+          <div class="project-tools">
+            <span class="tool-chip">Excel</span>
+            <span class="tool-chip">Financial Modelling</span>
+            <span class="tool-chip">FTSE 100</span>
+            <span class="tool-chip">FP&A</span>
+          </div>
+        </div>
+        <div class="project-number">01</div>
+      </div>
+
+      <!-- Replace src with your actual screenshot path once uploaded -->
+      <div class="project-screenshot">
+        <img src="dashboard.png" alt="Tesco Financial Model Dashboard"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="screenshot-placeholder" style="display:none; flex-direction:column; align-items:center;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <p>Dashboard screenshot</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p class="project-desc">
+          A fully integrated 3-statement model for Tesco PLC covering FY2020–FY2024 historical
+          data sourced directly from official Annual Reports, with 3-year forward projections
+          (FY2025E–FY2027E) driven by a dedicated Assumptions sheet. The model features
+          automatic balance sheet balancing, 12 integrity checks, working capital days
+          analysis, and a complete Key Financial Ratios dashboard.
+        </p>
+
+        <div class="project-highlights">
+          <div class="highlight">
+            <span class="highlight-value">£69.9bn</span>
+            <span class="highlight-label">FY2025E Revenue Projection</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-value">6.6%</span>
+            <span class="highlight-label">FY2025E EBITDA Margin</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-value">1.85x</span>
+            <span class="highlight-label">Net Debt / EBITDA (FY2025E)</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-value">3.67x</span>
+            <span class="highlight-label">Interest Coverage (FY2025E)</span>
+          </div>
+        </div>
+
+        <div class="project-footer">
+          <a href="Tesco_3Statement_Model_Rohit_Raj_FINAL.xlsx" class="btn-download" download>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            Download Excel Model
+          </a>
+          <a href="income-statement.png" class="btn-secondary" target="_blank">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            View Income Statement
+          </a>
+          <a href="model-checks.png" class="btn-secondary" target="_blank">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Model Checks (12/12 ✓)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON PROJECTS -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;">
+
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#0D7A6B" stroke-width="2">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3>Budget vs. Actuals Tracker</h3>
+        <p>Excel + Power BI · Coming soon</p>
+      </div>
+
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#0D7A6B" stroke-width="2">
+            <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+          </svg>
+        </div>
+        <h3>DCF Valuation Model</h3>
+        <p>Excel · FTSE 250 Company · Coming soon</p>
+      </div>
+
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#0D7A6B" stroke-width="2">
+            <path d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+          </svg>
+        </div>
+        <h3>Executive Finance Dashboard</h3>
+        <p>Power BI · CFO-level KPIs · Coming soon</p>
+      </div>
+
+      <div class="coming-soon">
+        <div class="coming-soon-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#0D7A6B" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <h3>More Projects</h3>
+        <p>Building continuously · Check back soon</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title" style="margin-bottom:24px;">Who I am</h2>
+        <p>
+          I'm <strong>Alugu Rohit Raj</strong>, a finance graduate with an
+          <strong>MSc in Accounting & Finance from the University of Southampton</strong>
+          and <strong>Part Qualified ACCA</strong>.
+          I'm actively seeking FP&A and Corporate Finance roles in the UK.
+        </p>
+        <p>
+          I build financial models the way FP&A teams actually use them — fully
+          integrated, assumption-driven, and built to be stress-tested. Every model
+          I build starts with verified data from official annual reports.
+        </p>
+        <p>
+          My focus is on <strong>Corporate Finance and FP&A</strong>: budgeting,
+          forecasting, variance analysis, and turning financial data into clear
+          insights for decision-makers.
+        </p>
+      </div>
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--navy); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.8px;">Skills</p>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-name">Excel Modelling</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Financial Analysis</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Power BI</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">FP&A / Budgeting</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">DCF Valuation</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Variance Analysis</div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Open to FP&A opportunities</h2>
+    <p class="section-intro">
+      Based in Southampton, UK. Available for full-time FP&A, Corporate Finance,
+      and Financial Analyst roles across the UK.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your.email@email.com" class="contact-link primary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-2 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email Me
+      </a>
+      <a href="https://linkedin.com/in/your-profile" class="contact-link" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="Tesco_3Statement_Model_Rohit_Raj_FINAL.xlsx" class="contact-link" download>
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+        Download My Model
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Alugu Rohit Raj · MSc Accounting & Finance, University of Southampton · Part Qualified ACCA ·
+  <a href="https://github.com/alugurohitraj" target="_blank">github.com/alugurohitraj</a></p>
+</footer>
+
+</body>
+</html>
